@@ -1,0 +1,28 @@
+.ham-icon{
+    width: 30px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.nav-wrapper{
+    padding: 1rem 2rem;
+    border-bottom: 3px solid #064b6b;
+    background-color: #065f89;
+}
+
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left-link{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-left-link a{
+    text-decoration: none;
+    color: #fff;
+}

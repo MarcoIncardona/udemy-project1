@@ -1,0 +1,19 @@
+.option-icon svg{
+    width: 25px;
+    cursor: pointer;
+}
+
+.recipe-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    gap: 1rem;  
+}
+
+.recipe-detail-container{
+    width: auto;
+    padding: 1rem;
+    background-color: #218daa;
+    border-radius: 1rem;
+}
+

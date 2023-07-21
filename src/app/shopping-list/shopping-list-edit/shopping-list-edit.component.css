@@ -1,0 +1,41 @@
+.shopping-edit-wrap{
+    padding: 2rem 0;
+}
+
+.shopping-edit-container{
+    padding: 1rem;
+    background-color: #218daa;
+    border-radius: 1rem;
+    width: fit-content;
+}
+
+.shopping-edit-button{
+    display: flex;
+    gap: .5rem;
+    margin-top: 1rem;
+}
+
+.shopping-edit-button button{
+    background-color: #c6dfe6;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: 0px;
+    cursor: pointer;
+    width: 5rem;
+}
+
+.shopping-edit-button button:nth-child(1){
+    background-color: green;
+}
+
+.shopping-edit-button button:nth-child(2){
+    background-color: red;
+}
+
+.shopping-edit-button button:nth-child(3){
+    background-color: lightblue;
+}
+
+.shopping-edit-button button:hover{
+    scale: 1.02
+}
