@@ -13,7 +13,10 @@
 .recipe-detail-container{
     width: auto;
     padding: 1rem;
-    background-color: #218daa;
+    border: 1px solid rgb(225, 215, 215);
     border-radius: 1rem;
 }
 
+li{
+    list-style: none;
+}

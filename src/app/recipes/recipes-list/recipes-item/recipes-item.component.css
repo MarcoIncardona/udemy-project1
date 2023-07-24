@@ -1,0 +1,28 @@
+.recipe-list-container{
+    padding: 1rem;
+    background-color: #218daa;
+    border-radius: 1rem;
+}
+
+.recipes-container img{
+    width: 80px;
+}
+
+.recipes-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    margin-bottom: .5rem;
+    box-shadow: 1px 1px 1px 0;
+    cursor: pointer;
+    transition: 100ms;
+}
+
+.recipes-container:hover{
+    scale: 1.02;
+    background-color: #c6dfe6;
+}

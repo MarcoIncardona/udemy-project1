@@ -1,13 +1,6 @@
 <div class="recipe-list-wrapper">
     <div class="recipe-list-container">
             <button class="new-recipe-button">New Recipe</button>
-            <div class="recipes-container" *ngFor="let recipe of recipes">
-                <div class="recipes-list">
-                    <h3>{{recipe.name}}</h3>
-                    <p>{{recipe.description}}</p>
-                </div>
-                <img src={{recipe.imagePath}} alt="food image">
-            </div>
+            <app-recipes-item *ngFor="let recipeEL of recipes" [recipe]="recipeEL"></app-recipes-item>
         </div>
-        <app-recipes-item></app-recipes-item>
 </div>
