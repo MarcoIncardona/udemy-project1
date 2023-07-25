@@ -11,4 +11,12 @@ export class ShoppingListComponent {
     new Ingredient("apple", 10),
     new Ingredient("tomatos", 5)
   ]
+
+  onAddIngredient(data: {name:string, amount: number}){
+    this.ingredients.push(data)
+  }
+
+  onClearIngredient(){
+    this.ingredients = []
+  }
 }

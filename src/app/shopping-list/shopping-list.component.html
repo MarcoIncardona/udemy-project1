@@ -1,6 +1,6 @@
 <div>
     <div>
-        <app-shopping-list-edit></app-shopping-list-edit>
+        <app-shopping-list-edit (clearIngredientEmit)="onClearIngredient()" (AddIngredientEmit)="onAddIngredient($event)"></app-shopping-list-edit>
         <div>
             <ul *ngFor="let ingredient of ingredients">
                 <li>{{ingredient.name}} {{ingredient.amount}}</li>

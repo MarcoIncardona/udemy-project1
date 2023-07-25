@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Recipe } from '../../recipe.model';
 
 @Component({
@@ -8,4 +8,13 @@ import { Recipe } from '../../recipe.model';
 })
 export class RecipesItemComponent {
  @Input() recipe!: Recipe;
+ @Output() recipeOpened = new EventEmitter<Recipe>
+
+ openRecipe(){
+  this.recipeOpened.emit({
+    name: this.recipe.name,
+    description : this.recipe.description,
+    imagePath : this.recipe.imagePath
+  })
+ }
 }

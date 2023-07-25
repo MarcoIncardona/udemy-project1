@@ -1,13 +1,14 @@
 <div class="shopping-edit-wrap">
     <div class="shopping-edit-container">
         <div class="shopping-edit-form">
-            <input type="text" placeholder="Name">
-            <input type="number" placeholder="Amount">
+            <input type="text" [(ngModel)]="ingredientName" placeholder="Name">
+            <input type="number" [(ngModel)]="ingredientAmount" placeholder="Amount">
         </div>
         <div class="shopping-edit-button">
-            <button type="submit">Add</button>
+            <button type="submit" (click)="addIngredient()">Add</button>
             <button type="button">Remove</button>
-            <button type="button">Clear</button>
+            <button type="button" (click)="clearIngredient()">Clear</button>
         </div>
+        <p *ngIf="err">{{err}}</p>
     </div>
 </div>

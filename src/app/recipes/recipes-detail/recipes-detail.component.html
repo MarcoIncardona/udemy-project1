@@ -1,7 +1,7 @@
 <div class="recipe-detail-wrapper">
     <div class="recipe-detail-container">
         <div class="recipe-header">
-            <h1 class="recipe-title">Recipe Name</h1>
+            <h1 class="recipe-title">{{recipeData.name}}</h1>
             <span class="option-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -10,13 +10,21 @@
                 </svg>
             </span>
         </div>
-
+        <div class="recipe-img">
+            <img src={{recipeData.imagePath}} alt="" width="300px">
+        </div>
         <div class="recipe-desc">
-            <p>description</p>
+            <h4>Description:</h4>
+            <p>{{recipeData.description}}</p>
+        </div>
+        <div class="recipe-ingredients">
+            <h4>Ingredients:</h4>
             <ul>
-                <li>ingredients</li>
+                <li>1</li>
+                <li>2</li>
             </ul>
         </div>
+
 
     </div>
 </div>
