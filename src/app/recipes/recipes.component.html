@@ -1,7 +1,7 @@
 <div class="recipe-wrapper">
     <div class="recipe-container">
-        <app-recipes-list (recipeRecived)="onRecipeDisplayed = $event"></app-recipes-list>
-        <app-recipes-detail *ngIf="onRecipeDisplayed, else infoText" [recipeData]="onRecipeDisplayed"></app-recipes-detail>
+        <app-recipes-list></app-recipes-list>
+        <app-recipes-detail [recipeData]="recipeData" *ngIf="recipeData, else infoText" ></app-recipes-detail>
         <ng-template #infoText>
             <p>Please select a Recipe!</p>
         </ng-template>

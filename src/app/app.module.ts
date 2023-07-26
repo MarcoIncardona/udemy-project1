@@ -9,6 +9,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
 import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.component';
 import { RecipesItemComponent } from './recipes/recipes-list/recipes-item/recipes-item.component';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RecipesItemComponent } from './recipes/recipes-list/recipes-item/recipe
     RecipesComponent,
     RecipesListComponent,
     RecipesDetailComponent,
-    RecipesItemComponent
+    RecipesItemComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,

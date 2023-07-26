@@ -1,6 +1,15 @@
 .option-icon svg{
     width: 25px;
     cursor: pointer;
+    transition: 100ms;
+}
+
+.option-icon svg:hover{
+    scale: 1.05;
+}
+
+.option-icon{
+    position: relative;
 }
 
 .recipe-header{
@@ -15,6 +24,7 @@
     padding: 1rem;
     border: 1px solid rgb(225, 215, 215);
     border-radius: 1rem;
+    background-color: white;
 }
 
 li{
@@ -37,4 +47,29 @@ img{
 
 .recipe-ingredients h4{
     margin-bottom: .5rem;
+}
+
+.recipe-dropdown{
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 9rem;
+    border: 1px solid rgb(240, 233, 233);
+    right: 0;
+    top: 35px;
+}
+
+.recipe-dropdown a{
+    text-decoration: none;
+    color: black;
+}
+
+.recipe-dropdown a:hover{
+    color: #065f89;
+    scale: 1.02;
 }

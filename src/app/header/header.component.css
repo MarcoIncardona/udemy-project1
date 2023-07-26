@@ -26,3 +26,33 @@
     text-decoration: none;
     color: #fff;
 }
+
+.side-dropdown{
+    background-color: white;
+    width: 9rem;
+    position: absolute;
+    right: 0;
+    padding: 1rem;
+    border: 1px solid rgb(240, 233, 233);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.header-dropdown-container{
+    position: relative;
+}
+
+.side-dropdown a{
+    text-decoration: none;
+    color: black;
+    margin-bottom: .2rem;
+}
+
+.side-dropdown a:hover{
+    color: #065f89;
+    scale: 1.02;
+}
+

@@ -8,8 +8,7 @@ import { Ingredient } from '../shared/ingredient.model';
 })
 export class ShoppingListComponent {
   ingredients :Ingredient[]= [
-    new Ingredient("apple", 10),
-    new Ingredient("tomatos", 5)
+    
   ]
 
   onAddIngredient(data: {name:string, amount: number}){

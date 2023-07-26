@@ -10,6 +10,7 @@ export class HeaderComponent {
   @Output() shoppingOpened: EventEmitter<boolean> = new EventEmitter()
   recipeStatus: boolean = false
   shoppingStatus = false
+  dropDownStatus = false
 
   openRecipe(){
     if(!this.recipeStatus){
@@ -28,6 +29,14 @@ export class HeaderComponent {
     }else{
       this.shoppingStatus = false
       this.shoppingOpened.emit(this.shoppingStatus)
+    }
+  }
+
+  openDropdown(){
+    if(!this.dropDownStatus){
+      this.dropDownStatus = true
+    }else{
+      this.dropDownStatus = false
     }
   }
 
