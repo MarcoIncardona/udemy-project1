@@ -6,6 +6,7 @@
 
 .recipes-container img{
     width: 80px;
+    border-radius: .5rem;
 }
 
 .recipes-container{
@@ -17,9 +18,10 @@
     background-color: #fff;
     border-radius: 1rem;
     margin-bottom: .5rem;
-    box-shadow: 1px 1px 1px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: 100ms;
+    gap: 2rem;
 }
 
 .recipes-container:hover{

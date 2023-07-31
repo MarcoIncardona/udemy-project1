@@ -25,6 +25,7 @@
     border: 1px solid rgb(225, 215, 215);
     border-radius: 1rem;
     background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 li{
@@ -66,7 +67,7 @@ img{
 
 .recipe-dropdown a{
     text-decoration: none;
-    color: black;
+    color: black;cursor: pointer;
 }
 
 .recipe-dropdown a:hover{

@@ -1,7 +1,6 @@
-<app-header (recipeOpened)="onRecipeOpened($event)" (shoppingOpened)="onShoppingOpened($event)"></app-header>
+<app-header></app-header>
 <div class="main-wrapper">
   <div class="main-container">
-    <app-recipes *ngIf="recipeStatus"></app-recipes>
-    <app-shopping-list *ngIf="shoppingStatus"></app-shopping-list>
+    <router-outlet></router-outlet>
   </div>
 </div>

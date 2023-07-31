@@ -11,7 +11,7 @@
     background-color: #fff;
     border-radius: 1rem;
     margin-bottom: .5rem;
-    box-shadow: 1px 1px 1px 0;
+    
     cursor: pointer;
     transition: 100ms;
 }
@@ -39,5 +39,6 @@
     padding: 1rem;
     background-color: #218daa;
     border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 

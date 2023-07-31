@@ -10,7 +10,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <div [ngStyle]="{'display':dropDownStatus === false ? 'none' : 'flex' }" class="recipe-dropdown">
-                    <a href="">Shopping list</a>
+                    <a (click)="onAddToShoppingList()">To shopping list</a>
                     <a href="">Edit recipe</a>
                     <a href="">Delete Recipe</a>
                 </div>
@@ -26,8 +26,7 @@
         <div class="recipe-ingredients">
             <h4>Ingredients:</h4>
             <ul>
-                <li>1</li>
-                <li>2</li>
+                <li *ngFor="let ingredient of recipeData.ingredients">{{ingredient.name}} - {{ingredient.amount}}</li>
             </ul>
         </div>
 

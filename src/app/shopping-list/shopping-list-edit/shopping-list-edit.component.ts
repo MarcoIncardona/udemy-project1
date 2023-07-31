@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { ShoppingListService } from '../shopping-list.service';
 
 @Component({
   selector: 'app-shopping-list-edit',
@@ -10,24 +11,22 @@ export class ShoppingListEditComponent {
   ingredientAmount = 0
   err = ""
 
-  @Output() AddIngredientEmit = new EventEmitter<{name: string, amount: number}>
-  @Output() clearIngredientEmit = new EventEmitter<void>
+  constructor(private shoppingService: ShoppingListService){
+
+  }
 
   addIngredient(){
     this.err = ""
     if(!this.ingredientName || this.ingredientAmount === 0){
       this.err = "inserire nome e quantità!"
     }else{
-      this.AddIngredientEmit.emit({
-        name: this.ingredientName,
-        amount: this.ingredientAmount
-      })
+      this.shoppingService.onAddIngredient(this.ingredientName, this.ingredientAmount)     
     }
     this.ingredientName = ""
     this.ingredientAmount = 0
   }
 
   clearIngredient(){
-    this.clearIngredientEmit.emit()
+    this.shoppingService.onClearIngredients();
   }
 }

@@ -12,25 +12,7 @@ export class HeaderComponent {
   shoppingStatus = false
   dropDownStatus = false
 
-  openRecipe(){
-    if(!this.recipeStatus){
-      this.recipeStatus = true
-      this.recipeOpened.emit(this.recipeStatus)
-    }else{
-      this.recipeStatus = false
-      this.recipeOpened.emit(this.recipeStatus)
-    }
-  }
-
-  openShopping(){
-    if(!this.shoppingStatus){
-      this.shoppingStatus = true
-      this.shoppingOpened.emit(this.shoppingStatus)
-    }else{
-      this.shoppingStatus = false
-      this.shoppingOpened.emit(this.shoppingStatus)
-    }
-  }
+ 
 
   openDropdown(){
     if(!this.dropDownStatus){
