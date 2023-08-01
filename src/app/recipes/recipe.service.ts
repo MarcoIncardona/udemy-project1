@@ -17,8 +17,16 @@ export class RecipeService{
 
     recipeSelected = new EventEmitter<Recipe>()
 
+
+      editRecipe(id: number, name: string, description: string, url: string, ingredients:Ingredient[]){
+        this.recipes[id - 1].name = name
+        this.recipes[id - 1].description = description
+        this.recipes[id - 1].imagePath = url
+        this.recipes[id - 1].ingredients = ingredients
+      }
+
       getRecipes(){
-        return this.recipes.slice()
+        return this.recipes
       }
 
       getRecipe(id: number){
@@ -28,6 +36,11 @@ export class RecipeService{
           }
         )
         return recipe
+      }
+
+      addRecipe(name: string, description: string, url: string, ingredients: Ingredient[]){
+        this.recipes.push(new Recipe(this.recipes.length + 1, name, description, url, ingredients))
+        console.log(this.recipes)
       }
 
       addIngredientsToShoppingList(ingredients: Ingredient[]){

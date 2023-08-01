@@ -1,7 +1,7 @@
-import { Component, Input, OnInit} from '@angular/core';
-import { Recipe } from '../recipe.model';
+import { Component,OnInit} from '@angular/core';
 import { RecipeService } from '../recipe.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Recipe } from '../recipe.model';
 
 @Component({
   selector: 'app-recipes-detail',
@@ -9,10 +9,10 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./recipes-detail.component.css']
 })
 export class RecipesDetailComponent implements OnInit{
-  recipeData!: any
+  recipeData! : any
   dropDownStatus = false
 
-  constructor(private recipeService: RecipeService, private route : ActivatedRoute){
+  constructor(private recipeService: RecipeService, private route : ActivatedRoute, private router: Router){
 
   }
 
@@ -27,6 +27,7 @@ export class RecipesDetailComponent implements OnInit{
   onAddToShoppingList(){
     this.recipeService.addIngredientsToShoppingList(this.recipeData.ingredients)
     this.dropDownStatus = false
+    this.router.navigate(["/shopping-list"])
   }
 
   openDropdown(){

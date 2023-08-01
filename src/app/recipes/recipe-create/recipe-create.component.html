@@ -1,0 +1,26 @@
+<div class="recipe-create-wrap">
+    <div class="recipe-create-container">
+        <h3>Create new Recipe!</h3>
+        <label>Nome ricetta</label>
+        <input [(ngModel)]="recipeName" type="text">
+        <label>Descrizione</label>
+        <textarea [(ngModel)]="recipeDescription" cols="30" rows="5"></textarea>
+        <label>Path img</label>
+        <input [(ngModel)]="recipeUrl" type="url">
+        <label>Ingredients</label>      
+        <div class="recipe-create-ingredient">
+            <input [(ngModel)]="ingredientName" type="text" placeholder="Name">
+            <input [(ngModel)]="ingredientAmount" type="number" placeholder="Amount">
+        </div>
+        <p *ngIf="ingredientErr">{{ingredientErr}}</p>
+        <div class="ingredient-buttons">
+           <button (click)="onAddIngredients()">Add</button>
+            <button (click)="onClearIngredients()">Clear</button> 
+        </div>
+        <ul>
+            
+        </ul>
+        <button (click)="onAddRecipe()" class="create-button">Create Recipe</button>
+        <p *ngIf="err">{{err}}</p>
+    </div>
+</div>

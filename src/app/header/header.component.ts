@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +6,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  @Output() recipeOpened: EventEmitter<boolean> = new EventEmitter()
-  @Output() shoppingOpened: EventEmitter<boolean> = new EventEmitter()
-  recipeStatus: boolean = false
-  shoppingStatus = false
   dropDownStatus = false
 
  

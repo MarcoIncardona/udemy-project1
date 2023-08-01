@@ -14,6 +14,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 2.5rem;
 }
 
 .nav-left-link{
@@ -54,5 +55,13 @@
 .side-dropdown a:hover{
     color: #065f89;
     scale: 1.02;
+}
+
+.active{
+    scale: 1.1;
+}
+
+.logo{
+    width: 5rem;
 }
 

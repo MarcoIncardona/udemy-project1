@@ -10,8 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RecipesListComponent implements OnInit{
   recipes: Recipe[] = [];
+  id!: number
 
-  ngOnInit(): void {
+  ngOnInit(){
     this.recipes = this.recipeService.getRecipes()
   }
 
@@ -20,6 +21,11 @@ export class RecipesListComponent implements OnInit{
   }
 
   onRecipeSelect(recipe:Recipe){
-    this.router.navigate(["/recipes", recipe.id], {relativeTo: this.route})
+    this.id = recipe.id
+    this.router.navigate(["/recipes", this.id], {relativeTo: this.route})
+  }
+
+  onRecipeEdit(){
+    this.router.navigate(["/recipes", this.id, "edit"], {relativeTo: this.route})
   }
 }

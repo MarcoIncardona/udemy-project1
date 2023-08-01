@@ -11,7 +11,7 @@
                 </svg>
                 <div [ngStyle]="{'display':dropDownStatus === false ? 'none' : 'flex' }" class="recipe-dropdown">
                     <a (click)="onAddToShoppingList()">To shopping list</a>
-                    <a href="">Edit recipe</a>
+                    <a routerLink="edit">Edit recipe</a>
                     <a href="">Delete Recipe</a>
                 </div>
             </span>

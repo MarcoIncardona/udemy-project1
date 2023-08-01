@@ -18,7 +18,7 @@ export class ShoppingListEditComponent {
   addIngredient(){
     this.err = ""
     if(!this.ingredientName || this.ingredientAmount === 0){
-      this.err = "inserire nome e quantità!"
+      this.err = "inserire ingrediente e quantità!"
     }else{
       this.shoppingService.onAddIngredient(this.ingredientName, this.ingredientAmount)     
     }
