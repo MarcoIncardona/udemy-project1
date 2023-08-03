@@ -38,6 +38,10 @@ export class RecipeService{
         return recipe
       }
 
+      onDeleteRecipe(id:number){
+        
+      }
+
       addRecipe(name: string, description: string, url: string, ingredients: Ingredient[]){
         this.recipes.push(new Recipe(this.recipes.length + 1, name, description, url, ingredients))
         console.log(this.recipes)

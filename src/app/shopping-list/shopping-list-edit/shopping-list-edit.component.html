@@ -1,14 +1,36 @@
 <div class="shopping-edit-wrap">
     <div class="shopping-edit-container">
         <div class="shopping-edit-form">
-            <input type="text" [(ngModel)]="ingredientName" placeholder="Name">
-            <input type="number" [(ngModel)]="ingredientAmount" placeholder="Amount">
+            <form (ngSubmit)="addIngredient(f)" #f="ngForm">
+                <div class="input-container">
+                    <div>
+                        <label for="Ingredient">Ingredient</label>
+                        <input 
+                        type="text" 
+                        ngModel 
+                        required 
+                        name="ingredient" 
+                        #ingredient="ngModel"
+                        placeholder="Ingredient" />
+                    </div>
+                    <div>
+                        <label for="amount">Amount</label>
+                        <input 
+                        type="number" 
+                        ngModel required 
+                        name="amount" 
+                        #amount="ngModel"
+                        placeholder="Amount" />
+                    </div>
+                </div>
+                <p *ngIf=" (!ingredient.valid && ingredient.touched) ||(!amount.valid && amount.touched)">
+                    Inserire tutti i dati!
+                </p>
+                <div class="shopping-edit-button">
+                    <button [disabled]="!f.valid" type="submit">Add</button>
+                    <button type="button" (click)="clearIngredient()">Clear</button>
+                </div>
+            </form>
         </div>
-        <div class="shopping-edit-button">
-            <button type="submit" (click)="addIngredient()">Add</button>
-            <button type="button">Remove</button>
-            <button type="button" (click)="clearIngredient()">Clear</button>
-        </div>
-        <p *ngIf="err">{{err}}</p>
     </div>
 </div>

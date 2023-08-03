@@ -5,8 +5,9 @@
 }
 
 .recipes-container img{
-    width: 80px;
+    width: 90px;
     border-radius: .5rem;
+    height: 60px;
 }
 
 .recipes-container{

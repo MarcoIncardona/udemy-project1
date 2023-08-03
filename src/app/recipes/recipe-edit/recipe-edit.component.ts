@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RecipeService } from '../recipe.service';
 import { Ingredient } from 'src/app/shared/ingredient.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -10,9 +11,10 @@ import { Ingredient } from 'src/app/shared/ingredient.model';
 })
 export class RecipeEditComponent implements OnInit{
   recipe: any
+  defaultRecipeName = ""
+  defaultRecipeDescription = ""
+  defaultRecipeUrl = ""
   ingredients: Ingredient[] = []
-  ingredientName: string = ""
-  ingredientAmount: number = 0
   id: number = 0
   
 
@@ -22,6 +24,9 @@ export class RecipeEditComponent implements OnInit{
         this.recipe = this.recipeService.getRecipe(+params["id"])
         this.ingredients = this.recipe.ingredients
         this.id = params["id"]
+        this.defaultRecipeName = this.recipe.name
+        this.defaultRecipeDescription = this.recipe.description
+        this.defaultRecipeUrl = this.recipe.imagePath
       }
     )
   }
@@ -30,8 +35,9 @@ export class RecipeEditComponent implements OnInit{
     
   }
 
-  onSaveEdit(name: string , description: string , url: string){
-    this.recipeService.editRecipe(this.id, name, description, url, this.ingredients)
+  onSaveEdit(data: NgForm){
+    this.recipeService.editRecipe(this.id, data.value.recipeName, data.value.description, data.value.url, this.ingredients)
+    data.reset()
     this.router.navigate(["recipes", this.id])
   }
 
@@ -39,8 +45,9 @@ export class RecipeEditComponent implements OnInit{
     this.ingredients.splice(index, 1)
   }
 
-  onAddIngredient(){
-    this.ingredients.push({name: this.ingredientName, amount: this.ingredientAmount})
+  onAddIngredient(data: NgForm){
+    this.ingredients.push({name: data.value.ingredient, amount: data.value.amount})
+    data.reset()
   }
 
   onClear(){

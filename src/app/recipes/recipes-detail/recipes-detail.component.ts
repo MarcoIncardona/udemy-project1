@@ -11,6 +11,7 @@ import { Recipe } from '../recipe.model';
 export class RecipesDetailComponent implements OnInit{
   recipeData! : any
   dropDownStatus = false
+  id!:number
 
   constructor(private recipeService: RecipeService, private route : ActivatedRoute, private router: Router){
 
@@ -20,6 +21,7 @@ export class RecipesDetailComponent implements OnInit{
     this.route.params.subscribe(
       (params: Params) =>{
         this.recipeData = this.recipeService.getRecipe(+params["id"])
+        this.id = params["id"]
       }
     )
   }
@@ -37,4 +39,10 @@ export class RecipesDetailComponent implements OnInit{
       this.dropDownStatus = false
     }
   }
+
+  deleteRecipe(){
+    this.recipeService.onDeleteRecipe(this.id)
+  }
+
+  
 }

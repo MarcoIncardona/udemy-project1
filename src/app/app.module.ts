@@ -16,6 +16,7 @@ import { EmptyComponentComponent } from './empty-component/empty-component.compo
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeCreateComponent } from './recipes/recipe-create/recipe-create.component';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { RecipeCreateComponent } from './recipes/recipe-create/recipe-create.com
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]

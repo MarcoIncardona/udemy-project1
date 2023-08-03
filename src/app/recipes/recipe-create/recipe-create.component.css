@@ -23,7 +23,9 @@ input, textarea{
 
 .recipe-create-ingredient{
     display: flex;
+    flex-direction: column;
     gap: .5rem;
+    margin-bottom: .5rem;
 }
 
 .ingredient-buttons{
@@ -41,7 +43,11 @@ input, textarea{
 }
 
 .ingredient-buttons button:nth-child(1){
-    background-color: green
+    background-color: rgba(43, 173, 43, 0.822)
+}
+
+.ingredient-buttons button:nth-child(1):disabled{
+    background-color: rgba(117, 124, 117, 0.822);
 }
 
 .ingredient-buttons button:nth-child(2){
@@ -70,4 +76,14 @@ p{
     color: white;
     margin-top: .5rem;
     border-radius: .5rem;
+}
+
+.ingredient-input{
+    display: flex;
+    gap: .5rem;
+}
+
+h2{
+    color: white;
+    margin-bottom: .5rem;
 }

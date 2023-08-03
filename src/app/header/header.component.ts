@@ -8,8 +8,6 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   dropDownStatus = false
 
- 
-
   openDropdown(){
     if(!this.dropDownStatus){
       this.dropDownStatus = true

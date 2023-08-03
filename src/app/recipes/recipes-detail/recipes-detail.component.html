@@ -12,7 +12,7 @@
                 <div [ngStyle]="{'display':dropDownStatus === false ? 'none' : 'flex' }" class="recipe-dropdown">
                     <a (click)="onAddToShoppingList()">To shopping list</a>
                     <a routerLink="edit">Edit recipe</a>
-                    <a href="">Delete Recipe</a>
+                    <a (click)="deleteRecipe()">Delete Recipe</a>
                 </div>
             </span>
         </div>

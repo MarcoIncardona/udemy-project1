@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 import { RecipeService } from '../recipe.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-create',
@@ -8,38 +9,21 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./recipe-create.component.css']
 })
 export class RecipeCreateComponent {
-  recipeName:string = ""
-  recipeDescription: string = ""
-  recipeUrl: string = ""
+  defaultImage = "https://luigispizzakenosha.com/wp-content/uploads/placeholder.png"
   ingredients: Ingredient[] = []
-  ingredientName:string = ""
-  ingredientAmount:number  = 0
-  err: string = ""
-  ingredientErr: string = ""
+ 
 
   constructor(private recipeService: RecipeService){}
 
-  onAddRecipe(){
-    this.err = ""
-    if(!this.recipeName || !this.recipeDescription || !this.recipeUrl){
-      this.err = "Riempi tutti i campi!"
-    }else{
-      this.recipeService.addRecipe(this.recipeName, this.recipeDescription, this.recipeUrl, this.ingredients)
-      this.recipeName = "";
-      this.recipeDescription = "";
-      this.recipeUrl = "";
-    }
+  onAddRecipe(data: NgForm){
+    console.log(data.value)
+    this.recipeService.addRecipe(data.value.recipeName, data.value.description, data.value.url, this.ingredients)
+    data.reset()
   }
 
-  onAddIngredients(){
-    this.ingredientErr = ""
-    if(!this.ingredientAmount || !this.ingredientName){
-      this.ingredientErr = "inserire ingrediente e quantità!"
-    }else{
-      this.ingredients.push({name: this.ingredientName, amount: this.ingredientAmount});
-      this.ingredientName = "";
-      this.ingredientAmount = 0
-    }
+  onAddIngredient(data: NgForm){
+    this.ingredients.push({name: data.value.ingredient, amount: data.value.amount})
+    data.reset()
   }
 
   onClearIngredients(){

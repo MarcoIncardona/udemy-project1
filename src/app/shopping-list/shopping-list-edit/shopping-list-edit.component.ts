@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ShoppingListService } from '../shopping-list.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-shopping-list-edit',
@@ -7,26 +8,22 @@ import { ShoppingListService } from '../shopping-list.service';
   styleUrls: ['./shopping-list-edit.component.css']
 })
 export class ShoppingListEditComponent {
-  ingredientName = ""
-  ingredientAmount = 0
-  err = ""
+  
 
   constructor(private shoppingService: ShoppingListService){
 
   }
 
-  addIngredient(){
-    this.err = ""
-    if(!this.ingredientName || this.ingredientAmount === 0){
-      this.err = "inserire ingrediente e quantità!"
-    }else{
-      this.shoppingService.onAddIngredient(this.ingredientName, this.ingredientAmount)     
-    }
-    this.ingredientName = ""
-    this.ingredientAmount = 0
+  addIngredient(data: NgForm){  
+    this.shoppingService.onAddIngredient(data.value.ingredient, data.value.amount)  
+    data.reset()   
   }
 
   clearIngredient(){
     this.shoppingService.onClearIngredients();
+  }
+
+  RemoveIngredient(){
+
   }
 }
