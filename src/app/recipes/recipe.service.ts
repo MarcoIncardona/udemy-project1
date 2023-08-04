@@ -11,6 +11,16 @@ export class RecipeService{
         new Recipe(3, "alla norma", "un'altra pasta italiana", "https://www.giallozafferano.it/images/179-17902/Spaghetti-alla-Norma_650x433_wm.jpg", [new Ingredient("melanzane", 2), new Ingredient("salsa di pomodoro", 200), new Ingredient("pasta", 150)])
       ]
 
+      onDeleteRecipe(id:number){
+        for(let i of this.recipes){
+          if(i.id == id){
+            const index = this.recipes.indexOf(i)
+            this.recipes.splice(index, 1)
+          }
+        }
+       
+      }
+      
       constructor(private shoppingService :ShoppingListService){
 
       }
@@ -38,12 +48,9 @@ export class RecipeService{
         return recipe
       }
 
-      onDeleteRecipe(id:number){
-        
-      }
 
       addRecipe(name: string, description: string, url: string, ingredients: Ingredient[]){
-        this.recipes.push(new Recipe(this.recipes.length + 1, name, description, url, ingredients))
+        this.recipes.push(new Recipe(this.recipes.length == 0 ? 1 : this.recipes[this.recipes.length-1].id +1, name, description, url, ingredients))
         console.log(this.recipes)
       }
 
