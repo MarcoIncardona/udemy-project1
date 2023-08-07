@@ -17,10 +17,12 @@
                         <label for="amount">Amount</label>
                         <input 
                         type="number" 
-                        ngModel required 
+                        ngModel 
+                        required 
                         name="amount" 
                         #amount="ngModel"
-                        placeholder="Amount" />
+                        placeholder="Amount" 
+                        pattern="^[1-9]+[0-9]*$"/>
                     </div>
                 </div>
                 <p *ngIf=" (!ingredient.valid && ingredient.touched) ||(!amount.valid && amount.touched)">

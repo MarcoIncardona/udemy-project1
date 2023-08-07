@@ -54,4 +54,8 @@ export class RecipeEditComponent implements OnInit{
     this.ingredients = []
   }
 
+  onCancel(){
+    this.router.navigate(["../"], {relativeTo: this.route})
+  }
+
 }

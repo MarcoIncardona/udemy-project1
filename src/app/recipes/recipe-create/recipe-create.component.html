@@ -44,7 +44,8 @@
                         ngModel
                         name="amount"
                         #amount="ngModel"
-                        required>
+                        required
+                        pattern="^[1-9]+[0-9]*$">
                     </div>
                     <p *ngIf=" (!ingredient.valid && ingredient.touched) ||(!amount.valid && amount.touched)">Fill all ingredients input!</p>
                     <div class="ingredient-buttons">

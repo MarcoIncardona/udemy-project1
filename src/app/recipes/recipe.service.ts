@@ -1,7 +1,8 @@
-import { EventEmitter, Injectable } from "@angular/core"
+import { Injectable } from "@angular/core"
 import { Recipe } from "./recipe.model"
 import { Ingredient } from "../shared/ingredient.model"
 import { ShoppingListService } from "../shopping-list/shopping-list.service"
+import { Subject } from "rxjs"
 
 @Injectable()
 export class RecipeService{
@@ -11,6 +12,8 @@ export class RecipeService{
         new Recipe(3, "alla norma", "un'altra pasta italiana", "https://www.giallozafferano.it/images/179-17902/Spaghetti-alla-Norma_650x433_wm.jpg", [new Ingredient("melanzane", 2), new Ingredient("salsa di pomodoro", 200), new Ingredient("pasta", 150)])
       ]
 
+    
+
       onDeleteRecipe(id:number){
         for(let i of this.recipes){
           if(i.id == id){
@@ -18,15 +21,11 @@ export class RecipeService{
             this.recipes.splice(index, 1)
           }
         }
-       
       }
       
       constructor(private shoppingService :ShoppingListService){
 
       }
-
-    recipeSelected = new EventEmitter<Recipe>()
-
 
       editRecipe(id: number, name: string, description: string, url: string, ingredients:Ingredient[]){
         this.recipes[id - 1].name = name
