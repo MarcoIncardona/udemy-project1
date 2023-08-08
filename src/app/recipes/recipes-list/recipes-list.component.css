@@ -23,11 +23,12 @@
 }
 
 .new-recipe-button{
-    background-color: #c6dfe6;
+    background-color: #218daa;;
     padding: .5rem;
     border-radius: .5rem;
     border: 0px;
     margin-bottom: 1rem;
+    color: white;
 }
 
 .new-recipe-button:hover{
@@ -43,4 +44,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+p{
+    color: white;
+}
 

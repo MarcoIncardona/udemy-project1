@@ -1,6 +1,8 @@
-<div class="recipe-list-wrapper">
+
+<button routerLink="create" class="new-recipe-button">New Recipe</button>
+<div class="recipe-list-wrapper" >
     <div class="recipe-list-container">
-            <button routerLink="create" class="new-recipe-button">New Recipe</button>
+        <p *ngIf="recipes.length === 0">Add new recipe!</p>
             <app-recipes-item (click)="onRecipeSelect(recipeEL)" *ngFor="let recipeEL of recipes" [recipe]="recipeEL"></app-recipes-item>
         </div>
 </div>
