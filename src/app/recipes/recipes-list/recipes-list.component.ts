@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,17 +9,25 @@ import { Subscription } from 'rxjs';
   templateUrl: './recipes-list.component.html',
   styleUrls: ['./recipes-list.component.css']
 })
-export class RecipesListComponent implements OnInit{
-  recipes: Recipe[] = [];
+export class RecipesListComponent implements OnInit, OnChanges{
+  recipes!: Recipe[]
   id!: number
-  private recipesChangeSub!: Subscription;
 
   ngOnInit(){
+    this.recipeService.onFetchData()
     this.recipes = this.recipeService.getRecipes()
+    this.recipeService.onRecipeChanges.subscribe(newRecipes => {
+      this.recipes = newRecipes
+      console.log(newRecipes)
+    })
   }
 
   constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute){
 
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes['recipes'])
   }
 
   onRecipeSelect(recipe:Recipe){

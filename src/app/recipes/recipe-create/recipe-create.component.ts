@@ -16,7 +16,6 @@ export class RecipeCreateComponent {
   constructor(private recipeService: RecipeService){}
 
   onAddRecipe(data: NgForm){
-    console.log(data.value)
     this.recipeService.addRecipe(data.value.recipeName, data.value.description, data.value.url, this.ingredients)
     data.reset()
   }
@@ -28,6 +27,5 @@ export class RecipeCreateComponent {
 
   onClearIngredients(){
     this.ingredients = []
-    console.log(this.ingredients)
   }
 }
