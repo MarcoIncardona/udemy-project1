@@ -7,17 +7,19 @@ import { RecipesDetailComponent } from "./recipes/recipes-detail/recipes-detail.
 import { RecipeStartComponent } from "./recipes/recipe-start/recipe-start.component";
 import { RecipeEditComponent } from "./recipes/recipe-edit/recipe-edit.component";
 import { RecipeCreateComponent } from "./recipes/recipe-create/recipe-create.component";
+import { RecipeResolverService } from "./recipes/recipes-resolver.service";
+import { AuthComponent } from "./auth/auth.component";
 
 const appRoutes: Routes = [
     { path: "", component: EmptyComponentComponent},
-    { path: "recipes", component: RecipesComponent, children:[
+    { path: "recipes", component: RecipesComponent,resolve:[RecipeResolverService] ,children:[
         {path: "", component: RecipeStartComponent},
         {path: "create", component: RecipeCreateComponent},
-        {path: ":id", component: RecipesDetailComponent},
-        {path: ":id/edit", component: RecipeEditComponent}
+        {path: ":id", component: RecipesDetailComponent, resolve:[RecipeResolverService]},
+        {path: ":id/edit", component: RecipeEditComponent, resolve:[RecipeResolverService] }
     ]},
     { path: "shopping-list", component: ShoppingListComponent},
-    
+    { path: "login", component: AuthComponent}
 ]
 
 @NgModule({

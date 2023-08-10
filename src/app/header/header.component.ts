@@ -24,7 +24,7 @@ export class HeaderComponent {
   }
 
   fetchData(){
-    this.recipeService.onFetchData()
+    this.recipeService.onFetchData().subscribe()
   }
 
 }

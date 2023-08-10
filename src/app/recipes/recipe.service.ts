@@ -3,15 +3,11 @@ import { Recipe } from "./recipe.model"
 import { Ingredient } from "../shared/ingredient.model"
 import { ShoppingListService } from "../shopping-list/shopping-list.service"
 import { HttpClient } from "@angular/common/http"
-import { Subject, map } from "rxjs"
+import { Subject, tap} from "rxjs"
 
 @Injectable()
 export class RecipeService{
-   private recipes: Recipe[]= [
-        new Recipe(1, "Carbonara", "ricetta pasta italiana", "https://upload.wikimedia.org/wikipedia/commons/3/33/Espaguetis_carbonara.jpg", [new Ingredient("uova", 3), new Ingredient("pecorino", 10), new Ingredient("pasta", 100)]),
-        new Recipe(2, "cacio e pepe", "altra ricetta italiana", "https://www.giallozafferano.it/images/ricette/219/21989/foto_hd/hd650x433_wm.jpg", [new Ingredient("pepe", 3), new Ingredient("formaggio", 5), new Ingredient("pasta", 100)]),
-        new Recipe(3, "alla norma", "un'altra pasta italiana", "https://www.giallozafferano.it/images/179-17902/Spaghetti-alla-Norma_650x433_wm.jpg", [new Ingredient("melanzane", 2), new Ingredient("salsa di pomodoro", 200), new Ingredient("pasta", 150)])
-      ]
+   private recipes: Recipe[]= []
     
       constructor(private shoppingService :ShoppingListService, private http: HttpClient){
 
@@ -28,15 +24,15 @@ export class RecipeService{
       }
 
       onFetchData(){
-        this.http.get<Recipe[]>("https://udemy-project-11061-default-rtdb.europe-west1.firebasedatabase.app/recipes.json")
-        .subscribe(response =>{
+        return this.http.get<Recipe[]>("https://udemy-project-11061-default-rtdb.europe-west1.firebasedatabase.app/recipes.json")
+        .pipe(tap(response=>{
           if(!response){
             return
           }else{
             this.recipes = response
             this.onRecipeChanges.next(response)
           }
-        })
+        }))
       }
 
       onDeleteRecipe(id:number){
