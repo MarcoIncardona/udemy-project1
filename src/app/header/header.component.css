@@ -67,5 +67,12 @@
 
 a{
     cursor: pointer;
+    text-decoration: none;
+    color: #fff;
 }
 
+.nav-right{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}

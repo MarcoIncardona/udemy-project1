@@ -4,12 +4,14 @@
             <a href="#">
                 <img class="logo" src="assets\logo.png" alt="">
             </a>
-            <a routerLinkActive="active" routerLink="/recipes">Recipe</a>
+            <a *ngIf="isAuthenticated" routerLinkActive="active" routerLink="/recipes">Recipe</a>
             <a routerLinkActive="active" routerLink="/shopping-list">Shopping List</a>
+            <a *ngIf="!isAuthenticated" routerLinkActive="active" routerLink="/login">Login</a>
         </div>
 
         <div class="nav-right">
-            <span class="header-dropdown-container" (click)="openDropdown()">
+            <a (click)="onLogout()" *ngIf="isAuthenticated">Logout</a>
+            <span *ngIf="isAuthenticated" class="header-dropdown-container" (click)="openDropdown()">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="ham-icon">
                     <path stroke-linecap="round" stroke-linejoin="round"

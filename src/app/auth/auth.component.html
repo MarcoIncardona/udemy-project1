@@ -1,5 +1,6 @@
 <div class="login-wrap">
-    <div class="login-container">
+    <div *ngIf="isLoading" class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    <div *ngIf="!isLoading" class="login-container">
         <h2>{{isLoginMode ? "Login" : "Register"}}</h2>
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="email-container">
@@ -11,6 +12,7 @@
                 email
                 name="email"
                 #email="ngModel"
+                required
                 ngModel>
             </div>
             <div class="password-container">
@@ -21,10 +23,12 @@
                 id="password"
                 ngModel
                 #password="ngModel"
-                name="password">  
+                name="password"
+                required>  
             </div>
-            <button type="submit">{{isLoginMode ? "Login" : "Register"}}</button>
+            <button [disabled]="!f.valid" type="submit">{{isLoginMode ? "Login" : "Register"}}</button>
         </form>
         <p>{{isLoginMode ? "Non sei registrato?" : "Sei già registrato?"}}<span (click)="switchMode()"> clicca qui!</span></p>
     </div>
 </div>
+<p class="error" *ngIf="error">{{error}}</p>
