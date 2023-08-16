@@ -38,7 +38,7 @@ export class AuthComponent {
       })
     }else{
       this.authService.signup(email, password).subscribe(res =>{
-      console.log(res)
+      this.router.navigate(['./recipes'])
       this.isLoginMode = true
       alert("Registrato con successo")
       this.isLoading = false

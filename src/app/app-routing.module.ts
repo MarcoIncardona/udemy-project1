@@ -9,10 +9,11 @@ import { RecipeEditComponent } from "./recipes/recipe-edit/recipe-edit.component
 import { RecipeCreateComponent } from "./recipes/recipe-create/recipe-create.component";
 import { RecipeResolverService } from "./recipes/recipes-resolver.service";
 import { AuthComponent } from "./auth/auth.component";
+import { AuthGuard } from "./auth/auth.guard";
 
 const appRoutes: Routes = [
     { path: "", component: EmptyComponentComponent},
-    { path: "recipes", component: RecipesComponent,resolve:[RecipeResolverService] ,children:[
+    { path: "recipes", component: RecipesComponent, canActivate:[AuthGuard] ,resolve:[RecipeResolverService] ,children:[
         {path: "", component: RecipeStartComponent},
         {path: "create", component: RecipeCreateComponent},
         {path: ":id", component: RecipesDetailComponent, resolve:[RecipeResolverService]},
