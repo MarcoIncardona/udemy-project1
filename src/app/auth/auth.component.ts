@@ -52,4 +52,8 @@ export class AuthComponent {
     data.reset()
   }
 
+  onClose(){
+    this.error = ""
+  }
+
 }

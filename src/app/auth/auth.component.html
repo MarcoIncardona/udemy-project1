@@ -31,4 +31,5 @@
         <p>{{isLoginMode ? "Non sei registrato?" : "Sei già registrato?"}}<span (click)="switchMode()"> clicca qui!</span></p>
     </div>
 </div>
-<p class="error" *ngIf="error">{{error}}</p>
+<app-alert [message]="error" (close)="onClose()" *ngIf="error"/>
+<!-- <p class="error" *ngIf="error">{{error}}</p> -->

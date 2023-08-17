@@ -19,7 +19,8 @@ import { RecipeCreateComponent } from './recipes/recipe-create/recipe-create.com
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { RecipeService } from './recipes/recipe.service';
 import { HttpClientModule } from "@angular/common/http";
-import { AuthComponent } from './auth/auth.component'
+import { AuthComponent } from './auth/auth.component';
+import { AlertComponent } from './shared/alert/alert.component'
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AuthComponent } from './auth/auth.component'
     RecipeStartComponent,
     RecipeEditComponent,
     RecipeCreateComponent,
-    AuthComponent
+    AuthComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

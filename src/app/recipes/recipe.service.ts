@@ -2,10 +2,9 @@ import { Injectable } from "@angular/core"
 import { Recipe } from "./recipe.model"
 import { Ingredient } from "../shared/ingredient.model"
 import { ShoppingListService } from "../shopping-list/shopping-list.service"
-import { HttpClient, HttpParams } from "@angular/common/http"
+import { HttpClient } from "@angular/common/http"
 import { Subject, exhaustMap, take, tap } from "rxjs"
 import { AuthService } from "../auth/auth.service"
-import { User } from "../auth/user.model"
 
 @Injectable()
 export class RecipeService {
@@ -22,7 +21,7 @@ export class RecipeService {
 
   onSaveRecipe() {
     this.authService.user.pipe(take(1), exhaustMap(user=>{
-      return this.http.put<Recipe[]>("https://udemy-project-11061-default-rtdb.europe-west1.firebasedatabase.app/recipes.json?auth="+user?.token, this.recipes)
+      return this.http.put<Recipe[]>(`https://udemy-project-11061-default-rtdb.europe-west1.firebasedatabase.app/recipes.json?auth=${user?.token}&uid=${user?.id}`, this.recipes)
     })).subscribe(response => {
       }, error => {
         console.log(error.message)
@@ -31,7 +30,7 @@ export class RecipeService {
 
   onFetchData() {
     return this.authService.user.pipe(take(1), exhaustMap(user => {
-      return this.http.get<Recipe[]>('https://udemy-project-11061-default-rtdb.europe-west1.firebasedatabase.app/recipes.json?auth='+user?.token)
+      return this.http.get<Recipe[]>(`https://udemy-project-11061-default-rtdb.europe-west1.firebasedatabase.app/recipes.json?auth=${user?.token}&uid=${user?.id}`)
     }),
       tap(response => {
         if (!response) {

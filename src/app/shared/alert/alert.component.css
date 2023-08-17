@@ -1,0 +1,43 @@
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 50;
+}
+
+.alert-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 30vh;
+    left: 20vw;
+    width: 60vw;
+    padding: 2rem;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0 2px 8px rgbs(0,0,0, 0.26);
+    border-radius: 1rem;
+}
+
+.alert-box-action{
+    width: fit-content;
+}
+
+button{
+    background-color: #218daa;;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: 0px;
+    margin-bottom: 1rem;
+    color: white;
+    margin: auto;
+}
+
+button:hover{
+    scale: 1.02;
+    cursor: pointer;
+}
