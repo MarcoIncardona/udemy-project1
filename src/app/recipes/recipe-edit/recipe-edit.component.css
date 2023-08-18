@@ -115,6 +115,10 @@ p{
     gap: .5rem;
 }
 
+.ingredient-input input{
+    width: 100%;
+}
+
 h2{
     color: white;
     margin-bottom: .5rem;
@@ -138,3 +142,11 @@ h2{
 .cancel-button:hover{
     scale: 1.02;
 }
+
+
+
+@media screen and (max-width: 900px) {
+    .recipe-create-container {
+    width: 100%;
+    }
+  }

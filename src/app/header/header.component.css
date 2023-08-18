@@ -76,3 +76,12 @@ a{
     align-items: center;
     gap: 2rem;
 }
+
+@media screen and (max-width: 560px) {
+    .logo{
+        display: none
+    }
+    .nav-wrapper{
+        padding: .5rem;
+    }
+  }

@@ -74,3 +74,15 @@ img{
     color: #065f89;
     scale: 1.02;
 }
+
+@media screen and (max-width: 900px) {
+    .recipe-detail-container {
+       width: auto;
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+    img{
+        width: 100%;
+    }
+  }
