@@ -49,6 +49,7 @@ input{
     padding: .5rem;
     border-radius: .5rem;
     border: 0;
+    
 }
 
 p{
@@ -83,6 +84,19 @@ input.ng-invalid.ng-touched{
 label{
     color: white;
 }
+
+@media screen and (max-width: 560px) {
+    .input-container {
+      flex-direction: column;
+      
+    }
+    .shopping-edit-container{
+        width: 100%;
+    }
+    .shopping-edit-form{
+        display: block;
+    }
+  }
 
 
 

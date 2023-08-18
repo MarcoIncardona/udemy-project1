@@ -83,6 +83,10 @@ p{
     gap: .5rem;
 }
 
+.ingredient-input input{
+    width: 100%;
+}
+
 h2{
     color: white;
     margin-bottom: .5rem;
